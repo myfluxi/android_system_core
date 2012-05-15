@@ -148,6 +148,9 @@ enum {
     CAMERA_CMD_HISTOGRAM_ON     = 8,
     CAMERA_CMD_HISTOGRAM_OFF     = 9,
     CAMERA_CMD_HISTOGRAM_SEND_DATA  = 10,
+    
+	// add command
+	CAMERA_CMD_SET_SCREEN_ID = 0xFF000000,
 
 };
 
