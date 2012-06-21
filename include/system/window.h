@@ -236,6 +236,8 @@ enum {
     NATIVE_WINDOW_UNLOCK_AND_POST           = 12,   /* private */
     NATIVE_WINDOW_API_CONNECT               = 13,   /* private */
     NATIVE_WINDOW_API_DISCONNECT            = 14,   /* private */
+    NATIVE_WINDOW_SETPARAMETER              = 50,
+    NATIVE_WINDOW_GETPARAMETER              = 51
 };
 
 /* parameter for NATIVE_WINDOW_[API_][DIS]CONNECT */
@@ -257,6 +259,10 @@ enum {
     /* Buffers will be queued by the the camera HAL.
      */
     NATIVE_WINDOW_API_CAMERA = 4,
+    
+    NATIVE_WINDOW_API_MEDIA_HW = 5,
+    
+    NATIVE_WINDOW_API_CAMERA_HW = 6,
 };
 
 /* parameter for NATIVE_WINDOW_SET_BUFFERS_TRANSFORM */
@@ -527,6 +533,14 @@ static inline int native_window_set_buffers_geometry(
 {
     return window->perform(window, NATIVE_WINDOW_SET_BUFFERS_GEOMETRY,
             w, h, format);
+}
+
+static inline int native_window_set_buffers_geometryex(
+        struct ANativeWindow* window,
+        int w, int h, int format,int screenid)
+{
+    return window->perform(window, NATIVE_WINDOW_SET_BUFFERS_GEOMETRY,
+            w, h, format,screenid);
 }
 
 /*
